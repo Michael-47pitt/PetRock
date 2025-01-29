@@ -1,4 +1,3 @@
-
 package cs1736.petrock;
 public class PetRock {
 
