@@ -10,6 +10,7 @@ public class PetRockDriver
         int turnSincePolish=0;
         int turnSinceFeed=0;
         int turnSincePlay;
+        int daysEnergyZero; // This stores how many consecutive days the energy has been 0
         
         Scanner scanner = new Scanner (System.in);
         System.out.println("Pet Rock Driver");
