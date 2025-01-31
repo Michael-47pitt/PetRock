@@ -12,14 +12,32 @@ public class PetRock {
     public static final int MAX_HUNGER=10;
     public static final int MAX_BOREDOM=10;
     public static final int MAX_ENERGY=10;
-    public static final int MIN_HUNGER=10;
-    public static final int MIN_BOREDOM=10;
-    public static final int MIN_ENERGY=10;
+    public static final int MIN_HUNGER=0;
+    public static final int MIN_BOREDOM=0;
+    public static final int MIN_ENERGY=0;
     
     //Methods 
     public void FeedRock()
     {
-        System.out.println("Feed rock");
+        hunger=hunger-2;
+        boredom++;
+        
+        if(boredom<MIN_BOREDOM)
+        {
+            boredom=0;
+        }
+        if(boredom>MAX_BOREDOM)
+        {
+            boredom=10;
+        }
+        if(hunger<MIN_HUNGER)
+        {
+            hunger=0;
+        }
+        if(hunger>MAX_HUNGER)
+        {
+            hunger=10;
+        }      
     }
     
     public void PlayWithRock()
