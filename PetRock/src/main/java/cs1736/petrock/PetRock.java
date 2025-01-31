@@ -24,6 +24,23 @@ public class PetRock {
     
     public void PlayWithRock()
     {
+        boredom -= 1;
+        hunger += 1;
+        energy -= 2;
+        
+        if(boredom < MIN_BOREDOM)
+            boredom = 0;
+        if(hunger > MAX_HUNGER)
+            hunger = 10;
+        if(energy < MIN_ENERGY)
+            energy = 0;
+        if(boredom > MAX_BOREDOM)
+            boredom = 10;
+        if(hunger < MIN_HUNGER)
+            hunger = 0;
+        if(energy > MAX_ENERGY)
+            energy = 10;
+        
          System.out.println("Play with rock");
     }
     
