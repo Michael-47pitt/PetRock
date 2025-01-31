@@ -18,7 +18,13 @@ public class PetRock {
         boredom = 5;
         energy = 5;
     }
-
+    
+    public static PetRock getPetRock(String n) {
+        if (PetRockInstance == null)
+            PetRockInstance = new PetRock(n);
+        return PetRockInstance;
+    }
+    
     //Methods 
     public void FeedRock() {
         boredom++;

@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 package cs1736.petrock;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-=======
->>>>>>> 1eb51efab48eee24717fe39c77bd3a7e4882aa6b
 /**
  *
  * @author Michael Paonessa
@@ -15,7 +11,6 @@ public class PetRockDriver
 {
     public static void main(String[] args) 
     {
-<<<<<<< HEAD
         int userInput;
         
         Scanner scanner = new Scanner (System.in);
@@ -54,8 +49,5 @@ public class PetRockDriver
                 break;
             }
         }while(userInput!=5);
-=======
-    
->>>>>>> 1eb51efab48eee24717fe39c77bd3a7e4882aa6b
     }  
 }

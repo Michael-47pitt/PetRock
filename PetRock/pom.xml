@@ -33,16 +33,4 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>cs1736.petrock.PetRock</exec.mainClass>
     </properties>
-    <dependency>
-	<groupId>org.junit.jupiter</groupId>
-	<artifactId>junit-jupiter-engine</artifactId>
-	<version>5.2.0</version>
-	<scope>test</scope>
-</dependency>
-<dependency>
-	<groupId>org.junit.platform</groupId>
-	<artifactId>junit-platform-runner</artifactId>
-	<version>1.2.0</version>
-	<scope>test</scope>
-</dependency>
 </project>
