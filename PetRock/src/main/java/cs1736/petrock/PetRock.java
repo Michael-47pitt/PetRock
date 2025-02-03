@@ -5,7 +5,7 @@ public class PetRock {
 
     //Variables 
     String name = "";
-    String[] mood = {"Happy", "Bored", "Tired", "Sad"};
+    String[] moods = {"Happy", "Bored", "Tired", "Sad"};
     int hunger;
     int boredom;
     int energy;
@@ -26,5 +26,9 @@ public class PetRock {
         return PetRockInstance;
     }
     
-    //Methods 
+    public String getName() {
+        return name;
+    }
+    
+    public 
 }
