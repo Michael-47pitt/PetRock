@@ -1,31 +1,38 @@
 package cs1736.petrock;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileReader;
 
-public class PetRock {
+public class PetRock
+{
 
     //Variables 
-    String name = "";
-    String[] moods = {"Happy", "Bored", "Tired", "Sad"};
+    String name;
     String mood;
     int hunger;
     int boredom;
     int energy;
-    private static PetRock PetRockInstance = null;
+    private static PetRock instance = null;
 
     //Constructor 
-    private PetRock(String n)
+    private PetRock()
     {
-        name = n;
         hunger = 5;
         boredom = 5;
         energy = 5;
+        mood = "Happy";
     }
     
-    public static PetRock getPetRock(String n)
+    public static PetRock getPetRock()
     {
-        if (PetRockInstance == null)
-            PetRockInstance = new PetRock(n);
-        return PetRockInstance;
+        getJsonInstance();
+        if (instance == null)
+        {
+            instance = new PetRock();
+        }
+        return instance;
     }
     
     public String getName()
@@ -76,5 +83,33 @@ public class PetRock {
     public void setEnergy(int e)
     {
         energy = e;
+    }
+    
+    public void save()
+    {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        
+        try (FileWriter writer = new FileWriter("rock.json"))
+        {
+            gson.toJson(this, writer);
+        }
+        
+        catch (IOException e)
+        {
+        }
+    }
+    
+    private static void getJsonInstance()
+    {
+        Gson gson = new Gson();
+        
+        try (FileReader reader = new FileReader("rock.json"))
+        {
+            instance = gson.fromJson(reader, PetRock.class);
+        }
+        
+        catch (IOException e)
+        {
+        }
     }
 }
