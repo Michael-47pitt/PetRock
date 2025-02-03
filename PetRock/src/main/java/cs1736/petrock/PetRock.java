@@ -28,6 +28,7 @@ public class PetRock {
         return PetRockInstance;
     }
     
+
     public String getName()
     {
         return name;
@@ -77,4 +78,5 @@ public class PetRock {
     {
         energy = e;
     }
+
 }
