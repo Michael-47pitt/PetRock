@@ -2,12 +2,24 @@ package cs1736.petrock;
 
 public class PetRockManager {
 
+    //Variables 
+    boolean canFeedRock = true;
+    boolean canPlayRock = true;
+    int polishRockCounter = 0;
+
+    //Methods
     public void FeedRock(PetRock p) {
-        int petRockHunger = p.getHunger();
-        int petRockEnergy = p.getEnergy();
-        p.setHunger(petRockHunger--);
-        p.setEnergy(petRockEnergy--);
-        System.out.println("Feed rock");
+        if (canFeedRock == true) {
+            int petRockHunger = p.getHunger();
+            int petRockEnergy = p.getEnergy();
+            p.setHunger(petRockHunger--);
+            p.setEnergy(petRockEnergy--);
+            System.out.println("Rock Fed");
+            canFeedRock = false;
+        }
+        else {
+            System.out.println("Cannot Feed Rock This Turn");
+        }
     }
 
     public void PlayWithRock(PetRock p) {
