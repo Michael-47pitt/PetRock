@@ -1,4 +1,5 @@
 package cs1736.petrock;
+import com.google.gson.Gson;
 
 public class PetRock {
 
