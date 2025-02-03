@@ -1,28 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cs1736.petrock;
 
-/**
- *
- * @author nbeck
- */
 public class PetRockManager {
-        public void FeedRock() {
-        boredom++;
-        hunger--;
-        energy--;
+
+    public void FeedRock(PetRock p) {
+        int petRockHunger = p.getHunger();
+        int petRockEnergy = p.getEnergy();
+        p.setHunger(petRockHunger--);
+        p.setEnergy(petRockEnergy--);
         System.out.println("Feed rock");
     }
 
-    public void PlayWithRock() {
-        energy = energy - 2;
-        boredom = boredom - 3;
+    public void PlayWithRock(PetRock p) {
+        int petRockEnergy = p.getEnergy();
+        int petRockBoredom = p.getBoredom();
+        int newEnergy = petRockEnergy - 2;
+        int newBoredom = petRockBoredom - 3;
+        p.setEnergy(newEnergy);
+        p.setBoredom(newBoredom);
         System.out.println("Play with rock");
     }
 
-    public void PolishRock() {
+    public void PolishRock(PetRock p) {
         hunger--;
         boredom--;
         energy++;
@@ -30,7 +28,7 @@ public class PetRockManager {
         System.out.println("polish rock");
     }
 
-    public void UpdateMood() {
+    public void UpdateMood(PetRock p) {
         System.out.println("Name: " + this.name);
         System.out.println("Mood: " + this.mood);
         System.out.println("Hunger: " + this.hunger);
