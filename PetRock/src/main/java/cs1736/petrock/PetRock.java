@@ -27,32 +27,4 @@ public class PetRock {
     }
     
     //Methods 
-    public void FeedRock() {
-        boredom++;
-        hunger--;
-        energy--;
-        System.out.println("Feed rock");
-    }
-
-    public void PlayWithRock() {
-        energy = energy - 2;
-        boredom = boredom - 3;
-        System.out.println("Play with rock");
-    }
-
-    public void PolishRock() {
-        hunger--;
-        boredom--;
-        energy++;
-        polishRockCounter++;
-        System.out.println("polish rock");
-    }
-
-    public void UpdateMood() {
-        System.out.println("Name: " + this.name);
-        System.out.println("Mood: " + this.mood);
-        System.out.println("Hunger: " + this.hunger);
-        System.out.println("Boredom: " + this.boredom);
-        System.out.println("Energy: " + this.energy);
-    }
 }
