@@ -1,16 +1,15 @@
 package cs1736.petrock;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Michael Paonessa
+ */
 public class PetRockDriver 
 {
     public static void main(String[] args) 
     {
         int userInput;
-        int turn=0;
-        int turnSincePolish=0;
-        int turnSinceFeed=0;
-        int turnSincePlay;
-        int daysEnergyZero; // This stores how many consecutive days the energy has been 0
         
         Scanner scanner = new Scanner (System.in);
         System.out.println("Pet Rock Driver");
@@ -48,5 +47,5 @@ public class PetRockDriver
                 break;
             }
         }while(userInput!=5);
-    } 
+    }   
 }
