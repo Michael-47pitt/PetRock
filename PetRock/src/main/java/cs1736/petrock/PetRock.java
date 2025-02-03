@@ -35,6 +35,7 @@ public class PetRock
         return instance;
     }
     
+
     public String getName()
     {
         return name;
@@ -84,7 +85,7 @@ public class PetRock
     {
         energy = e;
     }
-    
+
     public void save()
     {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
