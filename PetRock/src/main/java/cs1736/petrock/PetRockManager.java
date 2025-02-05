@@ -103,4 +103,20 @@ public class PetRockManager {
         p.setBoredom(boredom);
         p.setEnergy(energy);
     }
+    
+    public void moodCalculation(PetRock p){
+        int hunger = p.getHunger();
+        int boredom = p.getBoredom();
+        int energy = p.getEnergy();
+        
+        if (energy <= 2){
+            p.setMood("Tired");
+        }
+        else if (hunger > 7 || boredom > 7 || energy <= 3){
+            p.setMood("Sad");
+        }
+        else if ( (hunger >= 4 && hunger <= 7) || (boredom >= 4 && boredom <= 7) && energy > 3){
+            p.setMood("Bored");
+        }
+    }
 }
