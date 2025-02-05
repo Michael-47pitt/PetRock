@@ -103,4 +103,32 @@ public class PetRockManager {
         p.setBoredom(boredom);
         p.setEnergy(energy);
     }
+    
+    public void RandomEvent(PetRock p){
+	int eventOccurs = (int)(Math.random() * 100);
+	if(eventOccurs < 25){
+		
+            int eventSelector = (int)(Math.random() * 100);
+            if(eventSelector < 25){
+                    System.out.println("Your rock fell down a mountain. Energy decreased.");
+                    int newEnergy = p.getEnergy() - 1;
+                    p.setEnergy(newEnergy);
+            }
+            else if(eventSelector < 50){
+                    System.out.println("Your rock got scared by a sudden noise. Boredom increased.");
+                    int newBoredom = p.getBoredom() + 1;
+                    p.setBoredom(newBoredom);
+            }
+            else if(eventSelector < 75){
+                    System.out.println("Your rock found a honey baked ham! Hunger decreased.");
+                    int newHunger = p.getHunger() - 1;
+                    p.setHunger(newHunger);
+            }
+            else if(eventSelector < 100){
+                    System.out.println("Your rock found a good movie to watch. Boredom decreased.");
+                    int newBoredom = p.getBoredom() - 1;
+                    p.setBoredom(newBoredom);
+            }
+	}
+    }
 }
