@@ -5,6 +5,7 @@ public class PetRockManager {
     //Variables 
     boolean canFeedRock = true;
     boolean canPlayRock = true;
+    boolean actionTaken = true;
     int polishRockCounter = 0;
 
     //Methods
@@ -15,21 +16,27 @@ public class PetRockManager {
             p.setHunger(petRockHunger--);
             p.setEnergy(petRockEnergy--);
             System.out.println("Rock Fed");
-            canFeedRock = false;
-        }
+        } 
         else {
             System.out.println("Cannot Feed Rock This Turn");
         }
+        updateCanFeedRock();
     }
 
     public void PlayWithRock(PetRock p) {
-        int petRockEnergy = p.getEnergy();
-        int petRockBoredom = p.getBoredom();
-        int newEnergy = petRockEnergy - 2;
-        int newBoredom = petRockBoredom - 3;
-        p.setEnergy(newEnergy);
-        p.setBoredom(newBoredom);
-        System.out.println("Play with rock");
+        if (canPlayRock == true) {
+            int petRockEnergy = p.getEnergy();
+            int petRockBoredom = p.getBoredom();
+            int newEnergy = petRockEnergy - 2;
+            int newBoredom = petRockBoredom - 3;
+            p.setEnergy(newEnergy);
+            p.setBoredom(newBoredom);
+            System.out.println("Play with rock");
+        }
+        else {
+            System.out.println("Cannot Play Rock This Turn");
+        }
+        updateCanPlayRock();
     }
 
     public void PolishRock(PetRock p) {
@@ -42,7 +49,7 @@ public class PetRockManager {
         p.setHunger(newHunger);
         p.setBoredom(newBoredom);
         p.setEnergy(newEnergy);
-        
+
         polishRockCounter++;
         System.out.println("polish rock");
     }
@@ -53,5 +60,47 @@ public class PetRockManager {
         System.out.println("Hunger: " + p.getHunger());
         System.out.println("Boredom: " + p.getBoredom());
         System.out.println("Energy: " + p.getEnergy());
+        updateActionTaken();
+    }
+
+    public void updateCanFeedRock() {
+        if (canFeedRock == true) {
+            canFeedRock = false;
+        } 
+        else {
+            canFeedRock = true;
+        }
+    }
+
+    public void updateCanPlayRock() {
+        if (canPlayRock == true) {
+            canPlayRock = false;
+        } 
+        else {
+            canFeedRock = true;
+        }
+    }
+
+    public void updateActionTaken() {
+        if (actionTaken == true){
+            actionTaken = false;
+        }
+        else {
+            actionTaken = true;
+        }
+    }
+
+    public void updateTimeSimulation(PetRock p) {
+        int hunger = p.getHunger();
+        int boredom= p.getBoredom();
+        int energy = p.getEnergy();
+        hunger = hunger++;
+        boredom = boredom++;
+        if (actionTaken == false){
+            energy = energy++;
+        }
+        p.setHunger(hunger);
+        p.setBoredom(boredom);
+        p.setEnergy(energy);
     }
 }
