@@ -10,6 +10,7 @@ public class PetRockDriver
     public static void main(String[] args) 
     {
         int userInput;
+        PetRock rock=PetRock.getPetRock();
         
         Scanner scanner = new Scanner (System.in);
         System.out.println("Pet Rock Driver");
@@ -27,7 +28,8 @@ public class PetRockDriver
             
             if(userInput==1)
             {
-                System.out.println("You chose choice 1");
+                System.out.println("Feeding rock...");
+                PetRockManager.FeedRock(rock);
             }
             else if(userInput==2)
             {
