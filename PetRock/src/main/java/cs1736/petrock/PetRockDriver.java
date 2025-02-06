@@ -10,9 +10,15 @@ public class PetRockDriver
     public static void main(String[] args) 
     {
         int userInput;
-        
         Scanner scanner = new Scanner (System.in);
-        System.out.println("Pet Rock Driver");
+        
+        PetRock playerRock = PetRock.getPetRock();
+        if (playerRock.getName() == null)
+        {
+            System.out.print("Enter a name for your rock: ");
+            String rockName = input.nextLine();
+            playerRock.setName(rockName);
+        }
         
         do
         {
@@ -22,30 +28,23 @@ public class PetRockDriver
             System.out.println("4. Check status");
             System.out.println("5. Quit");
             
-            System.out.println("Enter your number choice");
+            System.out.print("Enter your number choice: ");
             userInput=scanner.nextInt();
             
-            if(userInput==1)
-            {
-                System.out.println("You chose choice 1");
-            }
-            else if(userInput==2)
-            {
-                System.out.println("You chose choice 2");
-            }
-            else if(userInput==3)
-            {
-                System.out.println("You chose choice 3");
-            }
-            else if(userInput==4)
-            {
-                System.out.println("You chose choice 4");
-            }
-            else if(userInput==5)
-            {
-                System.out.println("Quitting Program");
-                break;
+            switch(userInput) {
+                case 1:     PetRock.FeedRock(playerRock);
+                            break;
+                case 2:     PetRock.PlayWithRock(playerRock);
+                            break;
+                case 3:     PetRock.PolishRock(playerRock);
+                            break;
+                case 4:     PetRock.UpdateMood(playerRock);
+                            break;
+                case 5:     break;
+                default:    System.out.println("ERROR: Invalid input");
             }
         }while(userInput!=5);
+        
+        scanner.close();
     }   
 }
