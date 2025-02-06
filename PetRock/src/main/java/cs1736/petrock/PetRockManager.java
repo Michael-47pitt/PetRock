@@ -38,6 +38,7 @@ public class PetRockManager {
         ensureBoredomRange(p);
         ensureEnergyRange(p);
         checkLosingConditions(p);
+        resetPolishCounter();
     }
 
     public static void PlayWithRock(PetRock p) {
@@ -67,6 +68,7 @@ public class PetRockManager {
         ensureBoredomRange(p);
         ensureEnergyRange(p);
         checkLosingConditions(p);
+        resetPolishCounter();
     }
 
     public static void PolishRock(PetRock p) {
@@ -74,14 +76,25 @@ public class PetRockManager {
         int petRockHunger = p.getHunger();
         int petRockBoredom = p.getBoredom();
         int petRockEnergy = p.getEnergy();
+        
         if (energyLevel == true) {
-            resetEnergyCounter();
-            int newHunger = petRockHunger - 1;
-            int newBoredom = petRockBoredom - 1;
-            int newEnergy = petRockEnergy + 1;
-            p.setHunger(newHunger);
-            p.setBoredom(newBoredom);
-            p.setEnergy(newEnergy);
+            if(polishRockCounter <= 3){
+                resetEnergyCounter();
+                p.setHunger(petRockHunger - 1);
+                p.setBoredom(petRockBoredom - 1);
+                p.setEnergy(petRockEnergy + 1);
+            }
+            else if(polishRockCounter <= 5){
+                resetEnergyCounter();
+                p.setHunger(petRockHunger - 1);
+                p.setBoredom(petRockBoredom - 1);
+                System.out.println("Your rock is tired of being polished. Energy was not restored.");
+            }
+            else{
+                resetEnergyCounter();
+                p.setHunger(petRockHunger - 1);
+                System.out.println("Your rock is getting bored!");
+            }
 
             polishRockCounter++;
             System.out.println("polish rock");
@@ -100,6 +113,7 @@ public class PetRockManager {
         System.out.println("Boredom: " + p.getBoredom());
         System.out.println("Energy: " + p.getEnergy());
         actionTaken = false;
+        resetPolishCounter();
     }
 
     public static void updateCanFeedRock() {
@@ -126,6 +140,10 @@ public class PetRockManager {
     
     public static void resetEnergyCounter(){
         energyAtZeroCounter = 0;
+    }
+    
+    public static void resetPolishCounter(){
+        polishRockCounter = 0;
     }
 
     public static void updateTimeSimulation(PetRock p) {
@@ -172,24 +190,37 @@ public class PetRockManager {
 
             int eventSelector = (int) (Math.random() * 100);
             if (eventSelector < 25) {
-                System.out.println("Your rock fell down a mountain. Energy decreased.");
-                int newEnergy = p.getEnergy() - 1;
-                p.setEnergy(newEnergy);
+                System.out.println("Your rock found a shiny pebble! It's happier now!");
+                if(p.getHunger() > 4){
+                    p.setHunger(3);
+                }
+                else{
+                    p.setHunger(p.getHunger() - 1);
+                }
+                if(p.getBoredom() > 4){
+                    p.setBoredom(3);
+                }
+                else{
+                    p.setBoredom(p.getBoredom() - 1);
+                }
+                if(p.getEnergy() < 4){
+                    p.setEnergy(4);
+                }
+                else{
+                    p.setEnergy(p.getEnergy() + 2);
+                }
             }
             else if (eventSelector < 50) {
-                System.out.println("Your rock got scared by a sudden noise. Boredom increased.");
-                int newBoredom = p.getBoredom() + 1;
-                p.setBoredom(newBoredom);
+                System.out.println("Your rock got some extra sleep! Energy restored!");
+                p.setEnergy(p.getEnergy() + 2);
             } 
             else if (eventSelector < 75) {
-                System.out.println("Your rock found a honey baked ham! Hunger decreased.");
-                int newHunger = p.getHunger() - 1;
-                p.setHunger(newHunger);
+                System.out.println("Your rock is scared by a sudden noise! Boredom increased!");
+                p.setBoredom(p.getBoredom() + 2);
             } 
             else if (eventSelector < 100) {
-                System.out.println("Your rock found a good movie to watch. Boredom decreased.");
-                int newBoredom = p.getBoredom() - 1;
-                p.setBoredom(newBoredom);
+                System.out.println("Your rock is grumpy today. Hunger increased!");
+                p.setHunger(p.getHunger() + 2);
             }
         }
     }
