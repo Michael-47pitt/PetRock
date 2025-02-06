@@ -241,7 +241,7 @@ public class PetRockManager {
         
         if (energyAtZeroCounter == 3 || hunger == 10 || boredom == 10){
             System.out.println("Your rock has rolled away in protest! Game Over");
-            PetRock.deleteFile();
+            PetRock.endGame();
         }
     }
 }
