@@ -85,25 +85,26 @@ public class PetRockManager {
         
         if (energyLevel == true) {
             if(polishRockCounter <= 3){
-                resetEnergyCounter();
                 p.setHunger(petRockHunger - 1);
                 p.setBoredom(petRockBoredom - 1);
                 p.setEnergy(petRockEnergy + 1);
             }
             else if(polishRockCounter <= 5){
-                resetEnergyCounter();
                 p.setHunger(petRockHunger - 1);
                 p.setBoredom(petRockBoredom - 1);
                 System.out.println("Your rock is tired of being polished. Energy was not restored.");
             }
             else{
-                resetEnergyCounter();
                 p.setHunger(petRockHunger - 1);
                 System.out.println("Your rock is getting bored!");
             }
 
             polishRockCounter++;
             System.out.println("polish rock");
+        }
+        else {
+            System.out.println("Cannot Polish Rock This Turn Due To Low Energy");
+            increaseEnergyCounter();
         }
         actionTaken = true;
         ensureHungerRange(p);
@@ -237,6 +238,7 @@ public class PetRockManager {
             return false;
         } 
         else {
+            resetEnergyCounter();
             return true;
         }
     }
