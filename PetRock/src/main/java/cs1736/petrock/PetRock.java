@@ -115,7 +115,7 @@ public class PetRock
         }
     }
     
-    public static void deleteFile()
+    public static void endGame()
     {
         System.out.println("Your rock has rolled away in protest! Game over.");
         File file = new File("rock.json");
