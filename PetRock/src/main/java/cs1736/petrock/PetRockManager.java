@@ -18,10 +18,13 @@ public class PetRockManager {
             if (canFeedRock == true) {
                 int petRockHunger = p.getHunger();
                 int petRockEnergy = p.getEnergy();
-                petRockHunger--;
+                int petRockBoredom = p.getBoredom();
+                petRockHunger = petRockHunger - 2;
                 petRockEnergy--;
+                petRockBoredom++;
                 p.setHunger(petRockHunger);
                 p.setEnergy(petRockEnergy);
+                p.setBoredom(petRockBoredom);
                 System.out.println("Rock Fed");
             } 
             else {
@@ -47,10 +50,13 @@ public class PetRockManager {
             if (canPlayRock == true) {
                 int petRockEnergy = p.getEnergy();
                 int petRockBoredom = p.getBoredom();
+                int petRockHunger = p.getHunger();
                 int newEnergy = petRockEnergy - 2;
                 int newBoredom = petRockBoredom - 3;
+                petRockHunger++;
                 p.setEnergy(newEnergy);
                 p.setBoredom(newBoredom);
+                p.setHunger(petRockHunger);
                 System.out.println("Played with rock");
             }
             else {
