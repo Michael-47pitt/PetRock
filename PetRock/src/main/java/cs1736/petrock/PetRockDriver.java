@@ -28,7 +28,7 @@ public class PetRockDriver
             
             if(userInput==1)
             {
-                System.out.println("Feeding rock...");
+                //System.out.println("Feeding rock...");
                 PetRockManager.FeedRock(rock);
             }
             else if(userInput==2)
