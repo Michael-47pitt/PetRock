@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileReader;
+import java.io.File;
 
 public class PetRock
 {
@@ -112,5 +113,13 @@ public class PetRock
         catch (IOException e)
         {
         }
+    }
+    
+    public static void deleteFile()
+    {
+        System.out.println("Your rock has rolled away in protest! Game over.");
+        File file = new File("rock.json");
+        file.delete();
+        System.exit(0);
     }
 }
