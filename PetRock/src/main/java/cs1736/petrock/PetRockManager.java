@@ -25,6 +25,7 @@ public class PetRockManager {
                 p.setHunger(petRockHunger);
                 p.setEnergy(petRockEnergy);
                 p.setBoredom(petRockBoredom);
+                RandomEvent(p);
                 System.out.println("Rock Fed");
             } 
             else {
@@ -37,7 +38,6 @@ public class PetRockManager {
         }
         updateCanFeedRock();
         actionTaken = true;
-        RandomEvent(p);
         ensureHungerRange(p);
         ensureBoredomRange(p);
         ensureEnergyRange(p);
@@ -58,6 +58,7 @@ public class PetRockManager {
                 p.setEnergy(newEnergy);
                 p.setBoredom(newBoredom);
                 p.setHunger(petRockHunger);
+                RandomEvent(p);
                 System.out.println("Played with rock");
             }
             else {
@@ -70,7 +71,6 @@ public class PetRockManager {
         }
         updateCanPlayRock();
         actionTaken = true;
-        RandomEvent(p);
         ensureHungerRange(p);
         ensureBoredomRange(p);
         ensureEnergyRange(p);
