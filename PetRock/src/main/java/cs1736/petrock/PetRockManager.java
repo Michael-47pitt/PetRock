@@ -37,6 +37,7 @@ public class PetRockManager {
         }
         updateCanFeedRock();
         actionTaken = true;
+        RandomEvent(p);
         ensureHungerRange(p);
         ensureBoredomRange(p);
         ensureEnergyRange(p);
@@ -69,6 +70,7 @@ public class PetRockManager {
         }
         updateCanPlayRock();
         actionTaken = true;
+        RandomEvent(p);
         ensureHungerRange(p);
         ensureBoredomRange(p);
         ensureEnergyRange(p);
@@ -93,6 +95,7 @@ public class PetRockManager {
             System.out.println("polish rock");
         }
         actionTaken = true;
+        RandomEvent(p);
         ensureHungerRange(p);
         ensureBoredomRange(p);
         ensureEnergyRange(p);
