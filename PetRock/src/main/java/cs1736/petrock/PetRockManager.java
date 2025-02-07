@@ -111,27 +111,27 @@ public class PetRockManager
         resetPolishCounter();
     }
 
-    private static void updateCanFeedRock()
+    public static void updateCanFeedRock()
     {
         canFeedRock = !canFeedRock;
     }
 
-    private static void updateCanPlayRock()
+    public static void updateCanPlayRock()
     {
         canPlayRock = !canPlayRock;
     }
     
-    private static void increaseEnergyCounter()
+    public static void increaseEnergyCounter()
     {
         energyAtZeroCounter++;
     }
     
-    private static void resetEnergyCounter()
+    public static void resetEnergyCounter()
     {
         energyAtZeroCounter = 0;
     }
     
-    private static void resetPolishCounter()
+    public static void resetPolishCounter()
     {
         polishRockCounter = 0;
     }
@@ -175,7 +175,7 @@ public class PetRockManager
         }
     }
 
-    private static void RandomEvent(PetRock p)
+    public static void RandomEvent(PetRock p)
     {
         int eventOccurs = (int) (Math.random() * 100);
         if (eventOccurs < 25)
@@ -228,13 +228,13 @@ public class PetRockManager
         }
     }
 
-    private static boolean ensureEnergyLevelNotZero(PetRock p)
+    public static boolean ensureEnergyLevelNotZero(PetRock p)
     {
         return p.getEnergy() != 0;
     }
     
     
-    private static void ensureHungerRange(PetRock p)
+    public static void ensureHungerRange(PetRock p)
     {
         int hunger = p.getHunger();
         if (hunger < 0)
@@ -247,7 +247,7 @@ public class PetRockManager
         }
     }
     
-    private static void ensureBoredomRange(PetRock p)
+    public static void ensureBoredomRange(PetRock p)
     {
         int boredom = p.getBoredom();
         if (boredom < 0)
@@ -260,7 +260,7 @@ public class PetRockManager
         }
     }
     
-    private static void ensureEnergyRange(PetRock p)
+    public static void ensureEnergyRange(PetRock p)
     {
         int energy = p.getEnergy();
         if (energy < 0)
@@ -273,7 +273,7 @@ public class PetRockManager
         }
     }
     
-    private static void checkLosingConditions(PetRock p)
+    public static void checkLosingConditions(PetRock p)
     {
         int hunger = p.getHunger();
         int boredom = p.getBoredom();
