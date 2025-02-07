@@ -10,44 +10,48 @@ public class PetRockDriver
     public static void main(String[] args) 
     {
         int userInput;
-        PetRock rock=PetRock.getPetRock();
-        
         Scanner scanner = new Scanner (System.in);
-        System.out.println("Pet Rock Driver");
+        PetRock playerRock = PetRock.getPetRock();
+        if (playerRock.getName() == null)
+        {
+            System.out.print("Enter a name for your rock: ");
+            String rockName = scanner.nextLine();
+            playerRock.setName(rockName);
+        }
+        
+        System.out.println("1. Feed rock");
+        System.out.println("2. Play with rock");
+        System.out.println("3. Polish rock");
+        System.out.println("4. Check status");
+        System.out.println("5. Quit");
+        
         
         do
         {
-            System.out.println("1. Feed rock");
-            System.out.println("2. Play with rock");
-            System.out.println("3. Polish rock");
-            System.out.println("4. Check status");
-            System.out.println("5. Quit");
-            
-            System.out.println("Enter your number choice");
+            System.out.print("Enter your number choice: ");
             userInput=scanner.nextInt();
             
-            if(userInput==1)
+            switch(userInput)
             {
-                //System.out.println("Feeding rock...");
-                PetRockManager.FeedRock(rock);
+                case 1: PetRockManager.FeedRock(playerRock);
+                        break;
+                case 2: PetRockManager.PlayWithRock(playerRock);
+                        break;
+                case 3: PetRockManager.PolishRock(playerRock);
+                        break;
+                case 4: PetRockManager.DisplayStatus(playerRock);
+                        break;
+                case 5: break;
+                default: System.out.println("ERROR: Invalid input");
             }
-            else if(userInput==2)
+            
+            if (userInput != 5)
             {
-                System.out.println("You chose choice 2");
+                PetRockManager.updateTimeSimulation(playerRock);
+                PetRockManager.moodCalculation(playerRock);
             }
-            else if(userInput==3)
-            {
-                System.out.println("You chose choice 3");
-            }
-            else if(userInput==4)
-            {
-                System.out.println("You chose choice 4");
-            }
-            else if(userInput==5)
-            {
-                System.out.println("Quitting Program");
-                break;
-            }
-        }while(userInput!=5);
+            
+            playerRock.save();
+        } while(userInput!=5);
     }
 }

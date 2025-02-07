@@ -97,8 +97,7 @@ public class PetRock
         }
         
         catch (IOException e)
-        {
-        }
+        {}
     }
     
     private static void getJsonInstance()
@@ -111,8 +110,7 @@ public class PetRock
         }
         
         catch (IOException e)
-        {
-        }
+        {}
     }
     
     public static void endGame()
