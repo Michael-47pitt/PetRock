@@ -24,6 +24,7 @@ public class PetRockDriver
         System.out.println("3. Polish rock");
         System.out.println("4. Check status");
         System.out.println("5. Quit");
+        System.out.println("-------------------------------------");
         
         
         do
@@ -52,6 +53,7 @@ public class PetRockDriver
             }
             
             playerRock.save();
+            System.out.println();
         } while(userInput!=5);
     }
 }

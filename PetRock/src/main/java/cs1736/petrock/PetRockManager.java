@@ -109,6 +109,14 @@ public class PetRockManager
         System.out.println("Energy: " + p.getEnergy());
         actionTaken = false;
         resetPolishCounter();
+        if (!canFeedRock)
+        {
+            updateCanFeedRock();
+        }
+        if (!canPlayRock)
+        {
+            updateCanPlayRock();
+        }
     }
 
     public static void updateCanFeedRock()
