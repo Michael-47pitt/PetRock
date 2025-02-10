@@ -55,6 +55,10 @@ public class PetRockTest {
         assertEquals(4, petRock.getBoredom(), "Boredom should decrease by 1 after polishing");   
     }
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 68e3f788d96becff7baca91de221fa43092c34ff
     @Test
     public void testEnsureHungerRange_SuccessfulUpperBound()
     {
@@ -150,4 +154,10 @@ public class PetRockTest {
         // Checking assertion
         assertEquals(false,PetRockManager.ensureEnergyLevelNotZero(petRock));
     }
+<<<<<<< HEAD
+=======
+    
+
+    
+>>>>>>> 68e3f788d96becff7baca91de221fa43092c34ff
 }
