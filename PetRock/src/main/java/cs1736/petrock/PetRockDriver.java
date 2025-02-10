@@ -18,7 +18,7 @@ public class PetRockDriver
             String rockName = scanner.nextLine();
             playerRock.setName(rockName);
         }
-        
+        System.out.println("This is a test for CI/CD");
         System.out.println("1. Feed rock");
         System.out.println("2. Play with rock");
         System.out.println("3. Polish rock");
