@@ -56,33 +56,6 @@ public class PetRockTest {
     }
     
     @Test
-    @Disabled("Not easily testable due to print lines in display method")
-    // I found a work around but it's not working for some reason?
-    public void testDisplayStatus_SuccessfulDisplay()
-    {
-        // Setting expected output 
-        String expectedOutput=
-        "Name: null\n" +
-        "Mood: " + petRock.getMood() + "\n" +
-        "Hunger: 5\n" +
-        "Boredom: 5\n" +
-        "Energy: 5\n";
-        
-        // Capturing output
-        ByteArrayOutputStream printOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(printOut));
-        
-        // Performing Display
-        PetRockManager.DisplayStatus(petRock);
-        
-        // Restoring systemout to System out instead of print out
-        System.setOut(System.out);
-        
-        // Checking expected values
-        assertEquals(expectedOutput,printOut.toString()); // Problem here, the expected and actual seem to be equivalent but JUnit doesn't see it that way?
-    }
-    
-    @Test
     public void testEnsureHungerRange_SuccessfulUpperBound()
     {
         // Setting hunger outside of bounds
@@ -177,19 +150,4 @@ public class PetRockTest {
         // Checking assertion
         assertEquals(false,PetRockManager.ensureEnergyLevelNotZero(petRock));
     }
-    
-    @Test
-    @Disabled("Having issue, possible with increaseEnergyCounter not having right petRock object")
-    public void testIncreaseEnergyCounter_IncrementTest()
-    {
-        // Running method
-        PetRockManager.increaseEnergyCounter();
-        
-        // Assertion
-        assertEquals(6,petRock.getEnergy(), "Energy should have increased by 1.");
-        
-    }
-    
-    // Maybe Write tests for checkLosingCondition,
-    // moodCalculation, updateCanPlay/canFeed/, reset and Increase energy counter,
 }
